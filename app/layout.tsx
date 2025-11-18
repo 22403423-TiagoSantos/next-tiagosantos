@@ -40,6 +40,8 @@ export default function RootLayout({
             <Link href="/">Home</Link>
             <Link href="/route">Route</Link>
             <Link href="/caracteristicas">Caracteristicas</Link>
+            <Link href="/sobre">Sobre</Link>
+            <Link href="/tecnologias">Tecnologias</Link>
           </nav>
         </header>
         <main className="bg-pink-300 w-[70vw] min-h-[40vw] p-3">
