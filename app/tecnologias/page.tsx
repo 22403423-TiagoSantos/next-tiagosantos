@@ -1,6 +1,6 @@
 import tecnologias from '@/app/data/tecnologias.json';
 
-export default function Page(){
+export default function page(){
 
 
     
