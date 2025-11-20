@@ -38,7 +38,7 @@ export default function RootLayout({
           <h1> React e Next.js </h1>
           <nav className="flex gap-4">
             <Link href="/">Home</Link>
-            <Link href="/route">Route</Link>
+            <Link href="/rota">Route</Link>
             <Link href="/caracteristicas">Caracteristicas</Link>
             <Link href="/sobre">Sobre</Link>
             <Link href="/tecnologias">Tecnologias</Link>
