@@ -1,7 +1,7 @@
 
 import Componente1 from '@/components/Componente1/Componente1'
 
-export default function page() {
+export default function Page() {
 
 //Variáveis
 const magia = <p>JavaScript em HTML</p>
