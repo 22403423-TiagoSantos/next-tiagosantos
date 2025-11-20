@@ -1,85 +1,85 @@
 [
   {
     "title": "HTML",
-    "image": "/tecnologias/html.png",
+    "image": "/images/html.png",
     "description": "Linguagem de marcação para estruturar a web.",
     "rating": 5
   },
   {
     "title": "CSS",
-    "image": "/tecnologias/css.png",
+    "image": "/images/css.png",
     "description": "Linguagem de estilo para design e layout.",
     "rating": 4
   },
   {
     "title": "Tailwind CSS",
-    "image": "/tecnologias/tailwind.png",
+    "image": "/images/tailwind.png",
     "description": "Framework CSS utilitário para desenvolvimento rápido.",
     "rating": 5
   },
   {
     "title": "JavaScript",
-    "image": "/tecnologias/javascript.png",
+    "image": "/images/javascript.png",
     "description": "Linguagem de programação para interatividade.",
     "rating": 4
   },
   {
     "title": "TypeScript",
-    "image": "/tecnologias/typescript.png",
+    "image": "/images/typescript.png",
     "description": "Superset do JS que adiciona tipagem estática.",
     "rating": 5
   },
   {
     "title": "JSON",
-    "image": "/tecnologias/json.png",
+    "image": "/images/json.png",
     "description": "Formato leve para troca de dados.",
     "rating": 5
   },
   {
     "title": "API RESTful",
-    "image": "/tecnologias/api.png",
+    "image": "/images/api.png",
     "description": "Arquitetura para comunicação entre sistemas.",
     "rating": 4
   },
   {
     "title": "Swagger",
-    "image": "/tecnologias/swagger.png",
+    "image": "/images/swagger.png",
     "description": "Ferramenta para documentação de APIs.",
     "rating": 3
   },
   {
     "title": "GitHub",
-    "image": "/tecnologias/github.png",
+    "image": "/images/github.png",
     "description": "Plataforma de hospedagem de código-fonte.",
     "rating": 5
   },
   {
     "title": "Codespaces",
-    "image": "/tecnologias/codespaces.png",
+    "image": "/images/codespaces.png",
     "description": "Ambiente de desenvolvimento na nuvem.",
     "rating": 4
   },
   {
     "title": "GitHub Pages",
-    "image": "/tecnologias/github.png",
+    "image": "/images/github.png",
     "description": "Hospedagem gratuita para sites estáticos.",
     "rating": 4
   },
   {
     "title": "React.js",
-    "image": "/tecnologias/react.png",
+    "image": "/images/react.png",
     "description": "Biblioteca JS para criar interfaces de utilizador.",
     "rating": 5
   },
   {
     "title": "Next.js",
-    "image": "/tecnologias/nextjs.png",
+    "image": "/images/nextjs.png",
     "description": "Framework React para produção com SSR e SSG.",
     "rating": 5
   },
   {
     "title": "Vercel",
-    "image": "/tecnologias/vercel.png",
+    "image": "/images/vercel.png",
     "description": "Plataforma de frontend para deploy e hospedagem.",
     "rating": 5
   }
