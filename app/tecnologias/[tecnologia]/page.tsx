@@ -1,13 +1,18 @@
-import tecnologias from "@/app/data/tecnologias.json";
+import tecnologias from "@/data/tecnologias.json";
 import TecnologiaDetailsCard from "@/components/TecnologiaDetailsCard/TecnologiaDetailsCard";
 import Link from "next/link";
 
 interface TecnologiaPageProps {
-    params: { id: string };
+    params: { tecnologia: string };
 }
 
 export default function TecnologiaPage({ params }: TecnologiaPageProps) {
-    const index = parseInt(params.id);
+    const index = parseInt(params.tecnologia);
+
+    if (isNaN(index) || index < 0 || index >= tecnologias.length) {
+        return <p>Tecnologia não encontrada</p>;
+    }
+    
 
     const tecnologia = tecnologias[index];
 
