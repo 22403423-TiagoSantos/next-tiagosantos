@@ -28,12 +28,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className="
+        className={`${geistSans.variable} ${geistMono.variable}
         min-h-screen
         flex flex-col
         justify-center
-        items-center"
+        items-center`}
       >
+
         <header>
           <h1> React e Next.js </h1>
           <nav className="flex gap-4">
