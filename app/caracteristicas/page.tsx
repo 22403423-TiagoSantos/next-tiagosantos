@@ -1,6 +1,8 @@
 'use client';
 
-export default function Page() {
+import Caracteristica from "@/components/Caracteristica/Caracteristica";
+
+export default function CaracteristicasPage() {
 
     const caracteristicas = [
         'JSX, sintaxe que mistura HTML e JS.',
@@ -15,21 +17,10 @@ export default function Page() {
 
 
     return (
-
-        <>
-            <h2>Características do React e Next.js</h2>
-
-            <ul>
-                {caracteristicas.map((caracteristica, i) => {
-                    return (
-                        <li key={i} onClick={() => alert('Clicou!')}>
-                            {caracteristica}
-                        </li>
-                    )
-                })}
-            </ul>
-
-        </>
-
-    )
+        <div className="flex flex-wrap gap-4 p-6">
+            {caracteristicas.map((caracteristica, index) => (
+                <Caracteristica key={index} caracteristica={caracteristica} />
+            ))}
+        </div>
+    );
 }

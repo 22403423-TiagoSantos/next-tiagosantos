@@ -42,6 +42,7 @@ export default function RootLayout({
             <Link href="/caracteristicas">Caracteristicas</Link>
             <Link href="/sobre">Sobre</Link>
             <Link href="/tecnologias">Tecnologias</Link>
+            <Link href="/projetos">Projetos</Link>
           </nav>
         </header>
         <main className="bg-pink-300 w-[70vw] min-h-[40vw] p-3">

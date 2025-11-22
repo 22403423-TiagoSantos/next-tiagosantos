@@ -1,35 +1,18 @@
-import tecnologias from '@/app/data/tecnologias.json';
+import tecnologias from "@/app/data/tecnologias.json";
+import TecnologiaCard from "@/components/TecnologiaCard/TecnologiaCard";
 
-export default function Page(){
+export default function TecnologiasPage() {
 
-
-    
-return (
-    <div>
-      <h2>Tecnologias Exploradas</h2>
-
-      <div>
-        
-        {tecnologias.map((tech, index) => (
-          <div key={index}>
-            
-            <img 
-              src={tech.image} 
-              alt={tech.title} 
-              width={50} 
-              height={50} 
-            />
-            
-            <h3>{tech.title}</h3>
-            
-            <p>{tech.description}</p>
-            
-            <p>Avaliação: {tech.rating} ⭐</p>
-          </div>
-        ))}
-
-      </div>
-    </div>
-  )
-
+    return (
+        <div className="flex flex-wrap gap-4 p-4">
+            {tecnologias.map((tecnologias, index) => (
+                <TecnologiaCard
+                    key={index}
+                    title={tecnologias.title}
+                    image={tecnologias.image}
+                    index={index}
+                />
+            ))}
+        </div>
+    );
 }
