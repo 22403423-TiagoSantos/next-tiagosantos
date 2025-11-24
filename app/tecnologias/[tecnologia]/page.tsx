@@ -1,36 +1,22 @@
-import tecnologias from "@/data/tecnologias.json";
-import TecnologiaDetailsCard from "@/components/TecnologiaDetailsCard/TecnologiaDetailsCard";
-import Link from "next/link";
+"use client"
 
-interface TecnologiaPageProps {
-    params: { tecnologia: string };
-}
+import Link from 'next/link'
+import { useParams } from "next/navigation"
+import tecnologias from '@/data/tecnologias.json'
 
-export default function TecnologiaPage({ params }: TecnologiaPageProps) {
-    const index = parseInt(params.tecnologia);
+export default function TecnologiaPage() {
 
-    if (isNaN(index) || index < 0 || index >= tecnologias.length) {
-        return <p>Tecnologia não encontrada</p>;
-    }
-    
-
-    const tecnologia = tecnologias[index];
+    const params = useParams()
+    const index = Number(params.tecnologia)
 
     return (
-        <div className="p-6">
-            <TecnologiaDetailsCard
-                title={tecnologia.title}
-                image={tecnologia.image}
-                description={tecnologia.description}
-                rating={tecnologia.rating}
-            />
+        <>
+            <div className="flex flex-col justify-center items-center">
+                <h2>Tecnologia {tecnologias[index].title}</h2>
+                <p>{tecnologias[index].description}</p>
 
-            <Link
-                href="/tecnologias"
-                className="bg-gray-700 rounded-xl"
-            >
-                Voltar
-            </Link>
-        </div>
-    );
+                <Link href="/tecnologias" className="mt-5">Voltar</Link>
+            </div>
+        </>
+    )
 }

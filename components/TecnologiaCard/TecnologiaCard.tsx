@@ -1,15 +1,11 @@
-import Link from "next/link";
-
 interface TecnologiaProps {
     title: string;
     image: string;
-    index: number;
 }
 
-export default function TecnologiaCard({ title, image, index }: TecnologiaProps) {
+export default function TecnologiaCard({ title, image}: TecnologiaProps) {
 
     return (
-        <Link href={`/tecnologias/${index}`}>
             <div className="w-44 h-44 bg-pink-700 text-white rounded-xl p-4 m-3 flex flex-col items-center justify-center">
                 <img
                     src={image}
@@ -18,6 +14,5 @@ export default function TecnologiaCard({ title, image, index }: TecnologiaProps)
                 />
                 <h2 className="text-center">{title}</h2>
             </div>
-        </Link>
     );
 }
