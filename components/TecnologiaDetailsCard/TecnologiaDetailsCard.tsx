@@ -15,7 +15,7 @@ export default function TecnologiaDetailsCard({
     return (
         <div className="bg-pink-700 text-white p-6 rounded-xl">
             <img
-                src={`/images/${image}`}
+                src={`${image}`}
                 alt={title}
                 className="w-24 h-24"
             />

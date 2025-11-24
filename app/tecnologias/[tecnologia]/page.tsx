@@ -14,6 +14,7 @@ export default function TecnologiaPage() {
             <div className="flex flex-col justify-center items-center">
                 <h2>Tecnologia {tecnologias[index].title}</h2>
                 <p>{tecnologias[index].description}</p>
+                <p>{tecnologias[index].rating} ⭐</p>
 
                 <Link href="/tecnologias" className="mt-5">Voltar</Link>
             </div>

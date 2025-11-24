@@ -15,7 +15,6 @@ export default function CaracteristicaPage({ params }: CaracteristicaPageProps) 
 
             <Link
                 href="/caracteristicas"
-                className="bg-gray-700 text-white rounded-xl"
             >
                 Voltar
             </Link>
