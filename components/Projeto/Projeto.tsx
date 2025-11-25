@@ -11,7 +11,7 @@ export default function Projeto({ nome, url }: ProjetoProps) {
         <article className="bg-yellow-500 p-2 m-2 rounded-xl">
 
             <h2>{nome}</h2>
-            <p>Explore o projeto {nome} no seguinte
+            <p>Explore o projeto {nome} no seguinte <span> </span>
                 <Link href={url}
                     className="underline"
                     target="_blank">
