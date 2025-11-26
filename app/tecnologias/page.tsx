@@ -1,3 +1,5 @@
+"use client"
+
 import tecnologias from "@/data/tecnologias.json";
 import TecnologiaCard from "@/components/TecnologiaCard/TecnologiaCard";
 import Link from "next/link";

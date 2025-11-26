@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import Caracteristica from "@/components/Caracteristica/Caracteristica";
 
