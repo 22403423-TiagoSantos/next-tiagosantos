@@ -1,3 +1,5 @@
+import ContadorPersonalizado from "@/components/ContadorPorTecnologia/ContadorPorTecnologia";
+
 interface TecnologiaDetailsProps {
     title: string;
     image: string;
@@ -25,6 +27,9 @@ export default function TecnologiaDetailsCard({
             <p>{description}</p>
 
             <p>Rating: ⭐ {rating}/5</p>
+
+             <ContadorPersonalizado tecnologia={title} />
+
         </div>
     );
 }
