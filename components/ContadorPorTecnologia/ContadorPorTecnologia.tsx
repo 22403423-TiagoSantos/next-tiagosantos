@@ -5,33 +5,30 @@ interface PreferidaProps {
    tecnologia: string;
 }
 
-export default function ContadorPorTecnologia({tecnologia}:PreferidaProps) {
+export default function ContadorPorTecnologia({ tecnologia }: PreferidaProps) {
+    const [likes, setLikes] = useState(0)
+    const [mounted, setMounted] = useState(false) 
 
-    //
-    // A. Gestão de estados
-    const [likes, setLikes] = useState(() => {
-        const storedLikes = localStorage.getItem(tecnologia)||'0'
-        return parseInt(storedLikes)
-    })
-
-    //
-    // B. Efeitos
+   
     useEffect(() => {
-        localStorage.setItem(tecnologia, `${likes}`);
-        document.title = tecnologia + ` ${likes} ❤️`;
-    }, [likes])
+        const storedLikes = localStorage.getItem(tecnologia) || '0'
+        setLikes(parseInt(storedLikes))
+        setMounted(true)
+    }, [tecnologia])
 
+   
+    useEffect(() => {
+        if (!mounted) return
+        localStorage.setItem(tecnologia, `${likes}`)
+        document.title = `${tecnologia} ${likes} ❤️`
+    }, [likes, tecnologia, mounted])
 
-    //
-    // C. Renderização de componentes
     return (
-        <>
-            : {likes} <button
-                className="cursor-pointer"
-                onClick={()=>setLikes(likes+1)}
-            > 
-                ❤️
-            </button>
-        </>
+        <button
+            className="cursor-pointer"
+            onClick={() => setLikes(likes + 1)}
+        >
+            ❤️ {likes}
+        </button>
     )
 }
