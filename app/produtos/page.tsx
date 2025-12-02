@@ -11,7 +11,7 @@ export default function ProdutosPage() {
 
     //
     // A. Fetch de dados
-    const { data, error, isLoading } = useSWR<Produto[]>('https://deisishop.pythonanywhere.com/products', fetcher);
+    const { data, error, isLoading } = useSWR<Produto[]>('https://deisishop.pythonanywhere.com/products', fetcher); 
 
 
     // 
