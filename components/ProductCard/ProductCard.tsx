@@ -23,6 +23,11 @@ export default function ProductCard({ produto, adicionaProduto: adicionaProduto,
 
   let conteudoFooter
 
+  const imageSrc = produto.image.startsWith('http') 
+    ? produto.image 
+    : `https://deisishop.pythonanywhere.com${produto.image}`;
+
+
   if (!noCesto) {
     conteudoFooter = (
       <>
@@ -59,7 +64,7 @@ export default function ProductCard({ produto, adicionaProduto: adicionaProduto,
 
       <CardContent className="flex flex-col items-center p-2">
         <Image
-          src={produto.image}
+          src={imageSrc}
           alt={produto.title}
           width={100}
           height={100}

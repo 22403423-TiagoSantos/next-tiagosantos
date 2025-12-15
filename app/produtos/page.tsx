@@ -15,7 +15,7 @@ const fetcher = async (url: string) => {
 }
 
 export default function ProdutosPage() {
-  const { data, error, isLoading } = useSWR<Produto[]>('https://deisishop.pythonanywhere.com/products', fetcher)
+  const { data, error, isLoading } = useSWR<Produto[]>('https://deisishop.pythonanywhere.com/products/', fetcher)
 
   const [pesquisa, setPesquisa] = useState('')
   const [ordenacao, setOrdenacao] = useState('nome-asc')
@@ -62,27 +62,39 @@ export default function ProdutosPage() {
   }
 
   const comprar = async () => {
-    try {
-      const response = await fetch('https://deisishop.pythonanywhere.com/buy', {
-        method: 'POST',
-        body: JSON.stringify({
-          products: carrinho.map(p => p.id),
-          name: '',
-          student: estudante,
-          coupon: cupao
-        }),
-        headers: { "Content-Type": "application/json" }
-      })
-      if (!response.ok) throw new Error(response.statusText)
-      const data = await response.json()
-      setRespostaCompra(JSON.stringify(data))
-      setCarrinho([])
-      localStorage.removeItem('carrinho')
-    } catch (err) {
-      console.log('Erro ao comprar', err)
-      setRespostaCompra('Erro ao realizar a compra')
+  try {
+    const response = await fetch('https://deisishop.pythonanywhere.com/buy', {
+      method: 'POST',
+      body: JSON.stringify({
+        products: carrinho.map(p => p.id),
+        name: '',
+        student: estudante,
+        coupon: cupao
+      }),
+      headers: { "Content-Type": "application/json" }
+    })
+    
+    if (!response.ok) throw new Error('Erro ao processar a compra')
+    const data = await response.json()
+
+    let msg = ''
+    if (data.error) {
+      msg = `Erro: ${data.error}`
+    } else {
+      msg = `Compra efetuada! Total: ${data.totalCost}€\nReferência: ${data.reference}`
     }
+
+    setRespostaCompra(msg)
+    setCarrinho([])
+    localStorage.removeItem('carrinho')
+    setCupao('')
+    setEstudante(false)
+    
+  } catch (err: any) {
+    setRespostaCompra(err.message || 'Erro desconhecido')
   }
+}
+
 
   return (
     <section className="flex flex-col gap-6 mt-6">
@@ -100,18 +112,18 @@ export default function ProdutosPage() {
         noCesto={false}
       />
 
-      {carrinho.length > 0 && (
-        <Carrinho
-          carrinho={carrinho}
-          removerCarrinho={removerDoCarrinho}
-          estudante={estudante}
-          setEstudante={setEstudante}
-          cupao={cupao}
-          setCupao={setCupao}
-          compra={comprar}
-          respostaCompra={respostaCompra}
-        />
-      )}
+      <Carrinho
+        carrinho={carrinho}
+        removerCarrinho={removerDoCarrinho}
+        estudante={estudante}
+        setEstudante={setEstudante}
+        cupao={cupao}
+        setCupao={setCupao}
+        compra={comprar}
+        respostaCompra={respostaCompra}
+      />
+
+
     </section>
   )
 }

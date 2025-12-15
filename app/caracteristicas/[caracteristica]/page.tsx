@@ -1,13 +1,10 @@
 "use client";
-
+import { useParams } from 'next/navigation'
 import Link from "next/link";
 
-interface CaracteristicaPageProps {
-    params: { caracteristica: string };
-}
 
-export default function CaracteristicaPage({ params }: CaracteristicaPageProps) {
-    const { caracteristica } = params;
+export default function CaracteristicaPage() {
+    const { caracteristica } = useParams<{ caracteristica: string }>()
 
     return (
         <div className="flex flex-col items-center justify-center text-center">

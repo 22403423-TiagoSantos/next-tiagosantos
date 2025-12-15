@@ -13,6 +13,10 @@ export interface Produto {
   rating: Rating;
 }
 
-export type Categoria = string; 
+export interface Categoria {
+  id: number
+  name: string
+}
+
 
 

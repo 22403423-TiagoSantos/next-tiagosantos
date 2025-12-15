@@ -32,7 +32,7 @@ export default function Contador() {
     }, [count]);
 
     const cor = count <= 3 ? "text-red-500"
-        : count <= 7 ? "text-yellow-400"
+        : count <= 7 ? "text-yellow-200"
             : "text-green-500";
 
     return <>
@@ -40,20 +40,26 @@ export default function Contador() {
 
         <button className="bg-blue-200 hover:bg-blue-300 active:bg-blue-400 rounded-xl p-1"
             onClick={() => {
-                const novo = count < 10 ? count + 1 : count;
-                setCount(novo)
-                setLista([...historico, novo])
+                if (count < 10) {
+                    const novo = count + 1
+                    setCount(novo)
+                    setLista([...historico, novo])
+                }
             }}
+
         >
             Incrementar
         </button>
 
         <button className="bg-purple-400 hover:bg-purple-500 active:bg-purple-600 rounded-xl p-1"
             onClick={() => {
-                const novo = count > 0 ? count - 1 : count;
-                setCount(novo)
-                setLista([...historico, novo])
+                if (count > 0) {
+                    const novo = count - 1
+                    setCount(novo)
+                    setLista([...historico, novo])
+                }
             }}
+
         >
             Decrementar
         </button>
@@ -61,9 +67,12 @@ export default function Contador() {
         <button className="bg-yellow-400 hover:bg-yellow-500 active:bg-yellow-600 rounded-xl p-1"
 
             onClick={() => {
-                setCount(0);
-                setLista([...historico, 0]);
+                if (count !== 0) {
+                    setCount(0)
+                    setLista([...historico, 0])
+                }
             }}
+
 
         >
             Reset

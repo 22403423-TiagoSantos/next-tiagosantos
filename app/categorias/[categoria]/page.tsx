@@ -2,6 +2,7 @@
 
 import useSWR from 'swr'
 import { Produto } from '@/models/interface'
+import Image from 'next/image'
 import { useParams } from 'next/navigation'
 
 const fetcher = (url: string) => fetch(url).then(res => res.json())
@@ -24,13 +25,25 @@ export default function CategoriaPageClient() {
 
   return (
     <section className="p-4 flex flex-wrap gap-4">
-      {produtosCategoria.map(prod => (
-        <div key={prod.id} className="border rounded p-2 w-44 flex flex-col items-center gap-2">
-          <img src={prod.image} alt={prod.title} className="w-32 h-32"/>
-          <h3 className="text-center">{prod.title}</h3>
-          <p> {prod.price} $</p>
-        </div>
-      ))}
+      {produtosCategoria.map(prod => {
+        const imageSrc = prod.image.startsWith('http') 
+          ? prod.image 
+          : `https://deisishop.pythonanywhere.com${prod.image}`
+
+        return (
+          <div key={prod.id} className="border rounded p-2 w-44 flex flex-col items-center gap-2">
+            <Image 
+              src={imageSrc} 
+              alt={prod.title} 
+              width={128} 
+              height={128} 
+              className="object-contain"
+            />
+            <h3 className="text-center">{prod.title}</h3>
+            <p>{Number(prod.price).toFixed(2)} $</p>
+          </div>
+        )
+      })}
     </section>
   )
 }

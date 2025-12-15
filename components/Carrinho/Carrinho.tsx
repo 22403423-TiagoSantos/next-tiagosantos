@@ -19,18 +19,23 @@ export default function Carrinho({ carrinho: carrinho, removerCarrinho: removerC
     <section className="bg-green-100 p-4 rounded-xl mt-6">
       <h2 className="font-bold text-xl mb-4">Carrinho</h2>
       <ul className="mb-4">
-        {carrinho.map(p => (
-          <li key={p.id}>
-            {p.title} — {p.price} $
-            <button
-              onClick={() => removerCarrinho(p)}
-              className="ml-2 bg-red-500 text-white px-2 py-1 rounded hover:bg-red-600"
-            >
-              Remover
-            </button>
-          </li>
-        ))}
+        {carrinho.length === 0 ? (
+          <li className="text-gray-500">O carrinho está vazio.</li>
+        ) : (
+          carrinho.map(p => (
+            <li key={p.id}>
+              {p.title} — {p.price} $
+              <button
+                onClick={() => removerCarrinho(p)}
+                className="ml-2 bg-red-500 text-white px-2 py-1 rounded hover:bg-red-600"
+              >
+                Remover
+              </button>
+            </li>
+          ))
+        )}
       </ul>
+
 
       <p className="font-bold mb-2">Total: {total.toFixed(2)} $</p>
 
